@@ -43,7 +43,7 @@ public class Game implements Screen {
         }
 
         // Constant gravity is a good idea right?
-        cat.y += 8;
+        cat.y += 5;
 
         // Make sure the player does not hit the ground. This will kill them
         if (cat.y <= 0 || cat.y >= win.getHeight()) {
@@ -59,7 +59,7 @@ public class Game implements Screen {
             pipe = new Pipe(win.getHeight() / 2 - Constants.pipe_gap_size,
                     win.getHeight() / 2 + Constants.pipe_gap_size, Constants.pipe_width, win.getWidth());
             Constants.success_count += 1;
-            
+
         } else {
             // Move the pipe across the screen
             pipe.moveLeft(1);
