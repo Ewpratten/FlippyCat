@@ -1,5 +1,6 @@
 # Proposal
 Name: Flippy Cat
+
 Partners: Evan, Carter
 
 ## How to play
