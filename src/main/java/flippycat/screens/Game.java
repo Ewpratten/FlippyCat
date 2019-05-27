@@ -2,6 +2,7 @@ package flippycat.screens;
 
 import java.awt.Color;
 import java.awt.Point;
+import java.util.Random;
 
 import PicoEngine.Screen;
 import PicoEngine.Window;
@@ -14,8 +15,11 @@ import flippycat.Constants;
 public class Game implements Screen {
     ScreenManager sm = ScreenManager.getInstance();
 
-    public Player cat = new Player();
-    public Pipe pipe;
+    Player cat = new Player();
+    Pipe pipe;
+
+    // RNG for pipe height
+    Random rand = new Random();
 
     public void setup(Window win) {
         
@@ -56,8 +60,14 @@ public class Game implements Screen {
         // Update the current pipe
         if (pipe.shoudRedraw()) {
             // The cat made it past a pipe. Reset the pipe, and increment the success counter
-            pipe = new Pipe(win.getHeight() / 2 - Constants.pipe_gap_size,
-                    win.getHeight() / 2 + Constants.pipe_gap_size, Constants.pipe_width, win.getWidth());
+            
+            // Get the next centre pos of the pipes while taking into account the buffer zones
+            int gapPos = rand.nextInt(win.getHeight() - (Constants.pipe_rand_buffer * 2)) + Constants.pipe_rand_buffer;
+
+
+            pipe = new Pipe(gapPos - Constants.pipe_gap_size,
+                            gapPos + Constants.pipe_gap_size, 
+                            Constants.pipe_width, win.getWidth());
             Constants.success_count += 1;
 
         } else {
@@ -78,13 +88,17 @@ public class Game implements Screen {
         synchronized (win) {
             win.clear();
 
+            // Draw the current pipe
+            pipe.draw(win);
+
+            // Draw a temp ground
+            win.setColor(Color.green);
+            win.rect(0, win.getGrid().getY(77), win.getWidth(), win.getGrid().getY(3), true);
+
             // Draw the "Cat"
             // This should be the final thing to be drawn.
             win.setColor(Color.black);
             win.fillRect(cat.x, cat.y, Constants.cat_width, Constants.cat_width);
-
-            // Draw the current pipe
-            pipe.draw(win);
 
         }
         win.sleep(2);
