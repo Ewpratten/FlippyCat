@@ -7,6 +7,7 @@ import java.util.Random;
 import PicoEngine.Screen;
 import PicoEngine.Window;
 import PicoEngine.ScreenManager;
+import PicoEngine.Paralaxer;
 
 import flippycat.entities.Player;
 import flippycat.entities.Pipe;
@@ -20,6 +21,10 @@ public class Game implements Screen {
 
     // RNG for pipe height
     Random rand = new Random();
+
+    // Paralaxer for background art
+    Paralaxer background = new Paralaxer(Constants.bg_scroll_speed, "Background-1.png", "Background-2.png",
+            "Background-3.png");
 
     public void setup(Window win) {
         
@@ -76,17 +81,23 @@ public class Game implements Screen {
 
             // Check if the cat died
             if (pipe.isColliding(new Point(cat.x, cat.y), Constants.cat_width)) {
-                
+
                 // Switch to death screen, then reset the player's metrics
                 sm.setScreen("Death", win);
                 cat = new Player();
             }
         }
+        
+        // Tell the Paralaxer that the background should be moving
+        background.scroll();
     }
     
     public void draw(Window win) {
         synchronized (win) {
             win.clear();
+
+            // Draw the background art
+            background.draw(win);
 
             // Draw the current pipe
             pipe.draw(win);

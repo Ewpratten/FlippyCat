@@ -13,6 +13,8 @@ public class Constants {
     public static final int pipe_gap_size = 100;
     public static final int pipe_rand_buffer = 64;
 
+    public static final double bg_scroll_speed = 0.3;
+
     // This one is not constant, but still global
     public static int success_count = 0;
 
