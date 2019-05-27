@@ -14,7 +14,7 @@ public class Player extends Entity {
     }
 
     public void jump() {
-        this.y -= 20;
+        this.y -= 15;
     }
 
     public int getY() {

@@ -9,6 +9,9 @@ public class Constants {
     public static final int rect_button_height = 64;
     public static final int rect_button_width = 128;
 
+    public static final int pipe_width = 64;
+    public static final int pipe_gap_size = 128;
+
     // This one is not constant, but still global
     public static int success_count = 0;
 
