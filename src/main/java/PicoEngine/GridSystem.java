@@ -21,11 +21,11 @@ public class GridSystem {
         return new Point(x * pixPerGridW, y * pixPerGridH);
     }
     
-    public int getX(int x) {
-        return x * pixPerGridW;
+    public int getX(double x) {
+        return (int)(x * pixPerGridW);
     }
 
-    public int getY(int y) {
-        return y * pixPerGridH;
+    public int getY(double y) {
+        return (int)(y * pixPerGridH);
     }
 }

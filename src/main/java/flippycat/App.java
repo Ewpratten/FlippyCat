@@ -10,7 +10,7 @@ public class App {
     static final int height = 800;
 
     // Create the window
-    static Window win = new Window(width, height, 20, 140, "FlippyCat");
+    static Window win = new Window(width, height, 20, 80, "FlippyCat");
     static GameController controller = new GameController();
 
     public static void main(String[] args) {

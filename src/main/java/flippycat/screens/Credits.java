@@ -10,6 +10,9 @@ import PicoEngine.Window;
 public class Credits implements Screen {
     ScreenManager sm = ScreenManager.getInstance();
 
+    // We use a timeout to deal with an I/O issue with hsa
+    int timeout_counter = 200;
+
     public void setup(Window win) {
         // Set the pallet
         win.setColor(Color.black);
@@ -28,13 +31,21 @@ public class Credits implements Screen {
         synchronized (win) {
             win.clear();
 
-            win.drawString("Developers:", win.getGrid().getX(1), win.getGrid().getY(134));
-            win.drawString("Evan Pratten", win.getGrid().getX(1), win.getGrid().getY(138));
-            win.drawString("Carter Tomlenovich", win.getGrid().getX(1), win.getGrid().getY(140));
-        }
+            // Make sure, again, that the color is correct
+            win.setColor(Color.black);
 
-        win.sleep(10);
-        sm.setScreen("Menu", win);
+            // Draw the text
+            win.drawString("Developers:", win.getGrid().getX(1), win.getGrid().getY(70));
+            win.drawString("Evan Pratten", win.getGrid().getX(1), win.getGrid().getY(73));
+            win.drawString("Carter Tomlenovich", win.getGrid().getX(1), win.getGrid().getY(74.5));
+        }
+        win.sleep(2);
+
+        if (timeout_counter <= 0) {
+            sm.setScreen("Menu", win);
+        } else {
+            timeout_counter -= 1;
+        }
         
     }
 

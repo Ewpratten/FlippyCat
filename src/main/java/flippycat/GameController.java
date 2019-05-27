@@ -6,6 +6,7 @@ import PicoEngine.ScreenManager;
 import PicoEngine.Window;
 import flippycat.screens.Credits;
 import flippycat.screens.Menu;
+import flippycat.screens.Game;
 
 public class GameController {
     public Window win;
@@ -17,6 +18,7 @@ public class GameController {
         // Register screens
         sm.register("Credits", new Credits());
         sm.register("Menu", new Menu());
+        sm.register("Game", new Game());
 
         // Set default screen
         sm.setScreen("Credits", win);
