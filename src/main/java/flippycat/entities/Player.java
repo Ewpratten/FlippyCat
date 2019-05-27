@@ -2,19 +2,19 @@ package flippycat.entities;
 
 import PicoEngine.Entity;
 
-public class Player extends Entity{
-    String name = "";
-    int x, y;
+public class Player extends Entity {
+    
+    public Player(){
+        // Temp untill updated by game loop
+        this.y = 100;
+    }
 
     public void setName(String name) {
         this.name = name;
     }
 
     public void jump() {
-    }
-
-    public int getX() {
-        return x;
+        this.y -= 20;
     }
 
     public int getY() {
@@ -23,6 +23,10 @@ public class Player extends Entity{
 
     public String getName() {
         return name;
+    }
+
+    public void setY(int y){
+        this.y = y;
     }
 
 }
