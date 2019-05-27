@@ -5,6 +5,9 @@ package PicoEngine;
  */
 public interface Screen {
 
-    public void draw(Window gc);
-    public void feed(Window gc);
+    public void draw(Window win);
+
+    public void feed(Window win);
+
+    public void setup(Window win);
 }

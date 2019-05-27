@@ -6,9 +6,12 @@ import java.awt.Font;
 import PicoEngine.Screen;
 import PicoEngine.ScreenManager;
 import PicoEngine.Window;
+import PicoEngine.interaction.Button;
 
-public class Credits implements Screen {
+public class Menu implements Screen {
     ScreenManager sm = ScreenManager.getInstance();
+
+    Button settings = new Button(0, 0, 32, 32);
 
     public void setup(Window win) {
         // Set the pallet
@@ -28,14 +31,9 @@ public class Credits implements Screen {
         synchronized (win) {
             win.clear();
 
-            win.drawString("Developers:", win.getGrid().getX(1), win.getGrid().getY(134));
-            win.drawString("Evan Pratten", win.getGrid().getX(1), win.getGrid().getY(138));
-            win.drawString("Carter Tomlenovich", win.getGrid().getX(1), win.getGrid().getY(140));
+            settings.debug(win);
         }
-
-        win.sleep(10);
-        sm.setScreen("Menu", win);
-        
+        win.sleep(2);
     }
 
 }

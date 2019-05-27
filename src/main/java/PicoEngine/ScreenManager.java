@@ -22,8 +22,9 @@ public class ScreenManager {
         this.screens.put(name, screen);
     }
 
-    public void setScreen(String name) {
+    public void setScreen(String name, Window win) {
         this.currentScreen = name;
+        this.screens.get(currentScreen).setup(win);
     }
 
     public void feed(Window gc) {
