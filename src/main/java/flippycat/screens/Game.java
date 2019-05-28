@@ -111,6 +111,11 @@ public class Game implements Screen {
             win.setColor(Color.black);
             win.fillRect(cat.x, cat.y, Constants.cat_width, Constants.cat_width);
 
+            // Experimental crosshair on the cat
+            win.setColor(Color.white);
+            win.drawLine(0, cat.y + (int) (Constants.cat_width / 2), win.getWidth(), cat.y + (int) (Constants.cat_width / 2));
+            win.drawLine(cat.x + (int) (Constants.cat_width / 2), 0, cat.x + (int) (Constants.cat_width / 2), win.getHeight());
+            
         }
         win.sleep(2);
     }

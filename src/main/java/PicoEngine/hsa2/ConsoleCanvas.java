@@ -1034,7 +1034,7 @@ public class ConsoleCanvas extends JPanel implements ActionListener, KeyListener
 		return g;
 	}
 	private synchronized void invertScreen() {
-		//TODO - fill this in, maybe
+		// - fill this in, maybe
 		/* Graphics g = getGraphics();
 		 *
      g.translate(MARGIN, MARGIN);
