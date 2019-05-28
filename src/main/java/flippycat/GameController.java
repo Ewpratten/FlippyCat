@@ -28,7 +28,6 @@ public class GameController {
     
     public void loop() {
         synchronized (win) {
-            win.clear();
             sm.feed(win);
             sm.draw(win);
         }
