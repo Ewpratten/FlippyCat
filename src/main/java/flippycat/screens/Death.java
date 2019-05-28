@@ -14,7 +14,7 @@ import flippycat.Constants;
 public class Death implements Screen {
     ScreenManager sm = ScreenManager.getInstance();
 
-    Button start = new Button(0, 0, Constants.rect_button_width, Constants.rect_button_height);
+    Button start = new Button(0, 0, Constants.rect_button_width, Constants.rect_button_height, "start.png");
     Button ragequit = new Button(0, 0, Constants.rect_button_width, Constants.rect_button_height);
 
     public void setup(Window win) {
@@ -61,7 +61,7 @@ public class Death implements Screen {
             win.drawString("than " + Constants.success_count + " points.", win.getGrid().getX(5), win.getGrid().getY(32));
             
             // Debug draw the button
-            start.debug(win);
+            start.draw(win);
             ragequit.debug(win);
         }
         win.sleep(2);

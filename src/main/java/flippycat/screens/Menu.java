@@ -19,8 +19,8 @@ public class Menu implements Screen {
     // Creating a new button during setup is a waste of CPU time, so, 
     // we create a button in the wrong location now, then move it in setup()
     Button exit = new Button(0, 0, Constants.squared_button_width, Constants.squared_button_width);
-    Button start = new Button(0, 0, Constants.rect_button_width, Constants.rect_button_height);
-    Button tutorial = new Button(0, 0, Constants.rect_button_width, Constants.rect_button_height);
+    Button start = new Button(0, 0, Constants.rect_button_width, Constants.rect_button_height, "start.png");
+    Button tutorial = new Button(0, 0, Constants.rect_button_width, Constants.rect_button_height, "help.png");
 
     public void setup(Window win) {
         // Set the pallet
@@ -33,7 +33,7 @@ public class Menu implements Screen {
         // Move all buttons to correct location in grid
         exit.setLocation(win.getGrid().getX(20) - Constants.squared_button_width, 0);
         start.setLocation(win.getGrid().getX(7), win.getGrid().getY(50));
-        tutorial.setLocation(win.getGrid().getX(7), win.getGrid().getY(30));
+        tutorial.setLocation(win.getGrid().getX(7), win.getGrid().getY(40));
     }
 
     public void feed(Window win) {
@@ -60,8 +60,8 @@ public class Menu implements Screen {
             win.clear();
 
             exit.debug(win);
-            start.debug(win);
-            tutorial.debug(win);
+            start.draw(win);
+            tutorial.draw(win);
         }
         win.sleep(2);
     }
