@@ -18,9 +18,9 @@ public class Menu implements Screen {
     // But when this code is run, we do not know where that actually is. 
     // Creating a new button during setup is a waste of CPU time, so, 
     // we create a button in the wrong location now, then move it in setup()
-    Button settings = new Button(0, 0, Constants.squared_button_width, Constants.squared_button_width);
     Button exit = new Button(0, 0, Constants.squared_button_width, Constants.squared_button_width);
     Button start = new Button(0, 0, Constants.rect_button_width, Constants.rect_button_height);
+    Button tutorial = new Button(0, 0, Constants.rect_button_width, Constants.rect_button_height);
 
     public void setup(Window win) {
         // Set the pallet
@@ -32,7 +32,8 @@ public class Menu implements Screen {
 
         // Move all buttons to correct location in grid
         exit.setLocation(win.getGrid().getX(20) - Constants.squared_button_width, 0);
-        start.setLocation(win.getGrid().getX(5.5), win.getGrid().getY(45));
+        start.setLocation(win.getGrid().getX(7), win.getGrid().getY(50));
+        tutorial.setLocation(win.getGrid().getX(7), win.getGrid().getY(30));
     }
 
     public void feed(Window win) {
@@ -40,14 +41,14 @@ public class Menu implements Screen {
         int clickType = win.getMouseClick();
 
         boolean isExit     = (exit.wasPressed(loc, clickType));
-        boolean isSettings = (settings.wasPressed(loc, clickType));
         boolean isStart    = (start.wasPressed(loc, clickType));
+        boolean isTutorial = (tutorial.wasPressed(loc, clickType));
 
 
         if (isStart) {
             sm.setScreen("Game", win);
-        } else if (isSettings) {
-            // Do nothing. We do not have a settings screen
+        } else if (isTutorial) {
+            sm.setScreen("Tutorial", win);
         } else if (isExit) {
             System.exit(0);
         }
@@ -58,9 +59,9 @@ public class Menu implements Screen {
         synchronized (win) {
             win.clear();
 
-            settings.debug(win);
             exit.debug(win);
             start.debug(win);
+            tutorial.debug(win);
         }
         win.sleep(2);
     }

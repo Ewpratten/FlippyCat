@@ -8,6 +8,7 @@ import flippycat.screens.Credits;
 import flippycat.screens.Menu;
 import flippycat.screens.Game;
 import flippycat.screens.Death;
+import flippycat.screens.Tutorial;;
 
 public class GameController {
     public Window win;
@@ -21,6 +22,7 @@ public class GameController {
         sm.register("Menu", new Menu());
         sm.register("Game", new Game());
         sm.register("Death", new Death());
+        sm.register("Tutorial", new Tutorial());
 
         // Set default screen
         sm.setScreen("Credits", win);

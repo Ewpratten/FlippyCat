@@ -22,8 +22,8 @@ public class Paralaxer {
 
     public void scroll() {
         this.fgx -= this.speed;
-        this.mgx -= this.speed * 0.66;
-        this.bgx -= this.speed * 0.33;
+        this.mgx -= this.speed * 0.50;
+        this.bgx -= this.speed * 0.25;
     }
 
     public void draw(Window win) {
