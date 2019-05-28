@@ -8,6 +8,7 @@ import PicoEngine.Screen;
 import PicoEngine.Window;
 import PicoEngine.ScreenManager;
 import PicoEngine.Paralaxer;
+import PicoEngine.math.BangBangSolver;
 
 import flippycat.entities.Player;
 import flippycat.entities.Pipe;
@@ -25,6 +26,9 @@ public class Game implements Screen {
     // Paralaxer for background art
     Paralaxer background = new Paralaxer(Constants.bg_scroll_speed, "Background-1.png", "Background-2.png",
             "Background-3.png");
+    
+    // BangBang for auto-solve
+    BangBangSolver solver = new BangBangSolver();
 
     public void setup(Window win) {
         
@@ -39,6 +43,9 @@ public class Game implements Screen {
         pipe = new Pipe(win.getHeight() / 2 - Constants.pipe_gap_size, win.getHeight() / 2 + Constants.pipe_gap_size,
                 Constants.pipe_width, win.getWidth());
         
+        // Set the solver's first setpoint
+        solver.setSetpoint(win.getHeight() / 2);
+        
         // Set the cat's x to be locked to a grid location
         cat.x = win.getGrid().getX(5);
     }
@@ -49,6 +56,17 @@ public class Game implements Screen {
         // Check if the player should jump
         if (doJump) {
             cat.jump();
+        }
+
+        // do auto-solve if enabled
+        if (Constants.should_auto_solve) {
+            int output = solver.compute(cat.y);
+
+            if (output != 0) {
+                if (output == 1) {
+                    cat.jump();
+                }
+            }
         }
 
         // Constant gravity is a good idea right?
@@ -74,6 +92,9 @@ public class Game implements Screen {
                             gapPos + Constants.pipe_gap_size, 
                             Constants.pipe_width, win.getWidth());
             Constants.success_count += 1;
+
+            // Set a new setpoint for the solver
+            solver.setSetpoint(gapPos);
 
         } else {
             // Move the pipe across the screen

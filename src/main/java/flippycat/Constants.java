@@ -6,6 +6,10 @@ import java.awt.Font;
  * Constants and magic numbers are defined here with comments
  */
 public class Constants {
+    // This one is for fun
+    public static final boolean should_auto_solve = false;
+
+    // sizing
     public static final int squared_button_width = 64; // in px
     public static final int cat_width = 32; // in px
     public static final int rect_button_height = 96;
