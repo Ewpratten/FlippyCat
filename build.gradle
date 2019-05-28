@@ -30,3 +30,13 @@ dependencies {
 
 // Define the main class for the application
 mainClassName = 'flippycat.App'
+
+task fatJar(type: Jar) {
+	manifest {
+        attributes 'Implementation-Title': 'FlippyCat', 
+        	'Main-Class': 'flippycat.App'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}

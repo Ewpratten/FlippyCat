@@ -1,0 +1,23 @@
+name: flippycat
+version: '0.1.0' 
+summary: Totally not Flappy Bird
+description: |
+  FlippyCat is a game made as a chool project by Evan Pratten and Carter Tomlenovich
+
+confinement: devmode
+
+apps:
+  freeplane:
+    command: java -jar $SNAP/flippycat-0.1.0/FlippyCat-all.jar
+
+parts:
+  freeplane:
+    plugin: gradle
+    source: .
+    build: |
+      export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+      gradle fatjar
+    install: |
+      cp build/libs/FlippyCat-all.jar $SNAPCRAFT_PART_INSTALL/
+    build-packages:
+      - openjdk-8-jdk
