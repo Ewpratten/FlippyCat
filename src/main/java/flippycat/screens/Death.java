@@ -19,8 +19,8 @@ public class Death implements Screen {
 
     public void setup(Window win) {
         // Move all buttons to correct location in grid
-        start.setLocation(win.getGrid().getX(5.5), win.getGrid().getY(57));
-        ragequit.setLocation(win.getGrid().getX(5.5), win.getGrid().getY(38));
+        start.setLocation(win.getGrid().getX(7), win.getGrid().getY(57));
+        ragequit.setLocation(win.getGrid().getX(7), win.getGrid().getY(38));
 
         // Set the font to use
         win.setFont(Constants.main_font);

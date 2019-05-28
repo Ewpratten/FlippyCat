@@ -122,7 +122,40 @@ public class Tutorial implements Screen {
             // Draw the "next" button
             next.debug(win);
             break;
+        case 2:
+            // Hide everything with some white rectangles
+            win.setColor(Color.white);
+            win.rect(0, 0, win.getWidth(), win.getHeight(), true);
+
+            // Draw some text to explain what they are looking at
+            win.setColor(Color.black);
+            win.drawString("Hitting a pipe is bad", win.getGrid().getX(1.5), win.getGrid().getY(20));
+            win.drawString("They have a tendancy", win.getGrid().getX(1.5), win.getGrid().getY(26));
+            win.drawString("To kill cats", win.getGrid().getX(1.5), win.getGrid().getY(30));
+            win.drawString("Don't do it.", win.getGrid().getX(1.5), win.getGrid().getY(36));
+
+            // Draw the "next" button
+            next.debug(win);
+            break;
+        case 3:
+            // Hide everything with some white rectangles
+            win.setColor(Color.white);
+            win.rect(0, 0, win.getWidth(), win.getHeight(), true);
+
+            // Draw some text to explain what they are looking at
+            win.setColor(Color.black);
+            win.drawString("Flying can be done by", win.getGrid().getX(1.5), win.getGrid().getY(20));
+            win.drawString("Pressing the space bar", win.getGrid().getX(1.5), win.getGrid().getY(24));
+            win.drawString("Good luck.", win.getGrid().getX(1.5), win.getGrid().getY(30));
+
+            // Draw the "next" button
+            next.debug(win);
+            break;
+        case 4:
+            sm.setScreen("Game", win);
+            break;
         }
+
     }
 
 }
