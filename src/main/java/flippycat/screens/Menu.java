@@ -3,11 +3,13 @@ package flippycat.screens;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Point;
+import java.awt.image.BufferedImage;
 
 import PicoEngine.Screen;
 import PicoEngine.ScreenManager;
 import PicoEngine.Window;
 import PicoEngine.interaction.Button;
+import PicoEngine.ImageUtils;
 
 import flippycat.Constants;
 
@@ -18,9 +20,11 @@ public class Menu implements Screen {
     // But when this code is run, we do not know where that actually is. 
     // Creating a new button during setup is a waste of CPU time, so, 
     // we create a button in the wrong location now, then move it in setup()
-    Button exit = new Button(0, 0, Constants.squared_button_width, Constants.squared_button_width);
+    Button exit = new Button(0, 0, Constants.squared_button_width, Constants.squared_button_width, "exit.png");
     Button start = new Button(0, 0, Constants.rect_button_width, Constants.rect_button_height, "start.png");
     Button tutorial = new Button(0, 0, Constants.rect_button_width, Constants.rect_button_height, "help.png");
+
+    BufferedImage background = ImageUtils.getInstance().loadImageFromResources("title.png");
 
     public void setup(Window win) {
         // Set the pallet
@@ -59,7 +63,11 @@ public class Menu implements Screen {
         synchronized (win) {
             win.clear();
 
-            exit.debug(win);
+            // Draw the background
+            win.drawImage(background, 0, 0);
+
+            // Draw the buttons
+            exit.draw(win);
             start.draw(win);
             tutorial.draw(win);
         }

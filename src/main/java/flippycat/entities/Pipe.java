@@ -2,19 +2,25 @@ package flippycat.entities;
 
 import java.awt.Color;
 import java.awt.Point;
+import java.awt.image.BufferedImage;
 
 import PicoEngine.Window;
 import PicoEngine.templates.GappedWall;
+import PicoEngine.ImageUtils;
 
 public class Pipe implements GappedWall {
     private int x, width;
     private int min, max;
+
+    BufferedImage sprite;
 
     public Pipe(int min, int max, int width, int startX) {
         this.x = startX;
         this.width = width;
         this.min = min;
         this.max = max;
+
+        this.sprite = ImageUtils.getInstance().loadImageFromResources("pipe.png");
     }
 
     public boolean isColliding(Point loc, int colliderWidth) {
@@ -35,10 +41,14 @@ public class Pipe implements GappedWall {
     }
 
     public void draw(Window win) {
-        // Temp rects. Replace with images
-        win.setColor(Color.black);
-        win.rect(x, 0, width, min, true);
-        win.rect(x, max, width, win.getHeight(), true);
+        // // Temp rects. Replace with images
+        // win.setColor(Color.black);
+        // win.rect(x, 0, width, min, true);
+        // win.rect(x, max, width, win.getHeight(), true);
+
+        // draw both images
+        win.drawImage(sprite, x, -(win.getHeight() - min), width, 800);
+        win.drawImage(sprite, x, max, width, 800);
     }
 
     public boolean shoudRedraw() {

@@ -21,7 +21,7 @@ public class Tutorial implements Screen {
     Pipe pipe;
 
     int hint_stage = 0;
-    Button next = new Button(0, 0, Constants.rect_button_width, Constants.rect_button_height);
+    Button next = new Button(0, 0, Constants.rect_button_width, Constants.rect_button_height, "next.png");
 
     // Paralaxer for background art
     Paralaxer background = new Paralaxer(Constants.bg_scroll_speed, "Background-1.png", "Background-2.png",
@@ -107,7 +107,7 @@ public class Tutorial implements Screen {
             win.drawString("Don't ask why", win.getGrid().getX(2), win.getGrid().getY(38));
 
             // Draw the "next" button
-            next.debug(win);
+            next.draw(win);
             break;
         case 1:
             // Hide everything that is not the pipe with some white rectangles
@@ -120,7 +120,7 @@ public class Tutorial implements Screen {
             win.drawString("This is a pipe", win.getGrid().getX(1.2), win.getGrid().getY(20));
 
             // Draw the "next" button
-            next.debug(win);
+            next.draw(win);
             break;
         case 2:
             // Hide everything with some white rectangles
@@ -135,7 +135,7 @@ public class Tutorial implements Screen {
             win.drawString("Don't do it.", win.getGrid().getX(1.5), win.getGrid().getY(36));
 
             // Draw the "next" button
-            next.debug(win);
+            next.draw(win);
             break;
         case 3:
             // Hide everything with some white rectangles
@@ -149,7 +149,7 @@ public class Tutorial implements Screen {
             win.drawString("Good luck.", win.getGrid().getX(1.5), win.getGrid().getY(30));
 
             // Draw the "next" button
-            next.debug(win);
+            next.draw(win);
             break;
         case 4:
             sm.setScreen("Game", win);

@@ -15,12 +15,12 @@ public class Death implements Screen {
     ScreenManager sm = ScreenManager.getInstance();
 
     Button start = new Button(0, 0, Constants.rect_button_width, Constants.rect_button_height, "start.png");
-    Button ragequit = new Button(0, 0, Constants.rect_button_width, Constants.rect_button_height);
+    Button ragequit = new Button(0, 0, Constants.rect_button_width, Constants.rect_button_height, "ragequit.png");
 
     public void setup(Window win) {
         // Move all buttons to correct location in grid
         start.setLocation(win.getGrid().getX(7), win.getGrid().getY(57));
-        ragequit.setLocation(win.getGrid().getX(7), win.getGrid().getY(38));
+        ragequit.setLocation(win.getGrid().getX(7), win.getGrid().getY(46));
 
         // Set the font to use
         win.setFont(Constants.main_font);
@@ -62,7 +62,7 @@ public class Death implements Screen {
             
             // Debug draw the button
             start.draw(win);
-            ragequit.debug(win);
+            ragequit.draw(win);
         }
         win.sleep(2);
         
