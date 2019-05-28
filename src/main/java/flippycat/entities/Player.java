@@ -1,6 +1,11 @@
 package flippycat.entities;
 
+import java.awt.Color;
+
 import PicoEngine.Entity;
+import PicoEngine.Window;
+
+import flippycat.Constants;
 
 public class Player extends Entity {
     
@@ -15,6 +20,7 @@ public class Player extends Entity {
 
     public void jump() {
         this.y -= 10;
+
     }
 
     public int getY() {
@@ -25,8 +31,13 @@ public class Player extends Entity {
         return name;
     }
 
-    public void setY(int y){
+    public void setY(int y) {
         this.y = y;
+    }
+    
+    public void draw(Window win) {
+        win.setColor(Color.black);
+        win.fillRect(x, y, Constants.cat_width, Constants.cat_width);
     }
 
 }

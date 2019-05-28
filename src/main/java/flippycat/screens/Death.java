@@ -21,6 +21,9 @@ public class Death implements Screen {
         // Move all buttons to correct location in grid
         start.setLocation(win.getGrid().getX(5.5), win.getGrid().getY(57));
         ragequit.setLocation(win.getGrid().getX(5.5), win.getGrid().getY(38));
+
+        // Set the font to use
+        win.setFont(Constants.main_font);
     }
 
     public void feed(Window win) {
@@ -53,9 +56,9 @@ public class Death implements Screen {
             win.setColor(Color.black);
 
             // Draw the text
-            win.drawString("You died!", win.getGrid().getX(9), win.getGrid().getY(20));
-            win.drawString("Next time, do better than " + Constants.success_count + " tries.", win.getGrid().getX(7),
-                    win.getGrid().getY(28));
+            win.drawString("You died!", win.getGrid().getX(6), win.getGrid().getY(10));
+            win.drawString("Next time, do better ", win.getGrid().getX(2), win.getGrid().getY(28));
+            win.drawString("than " + Constants.success_count + " points.", win.getGrid().getX(5), win.getGrid().getY(32));
             
             // Debug draw the button
             start.debug(win);

@@ -108,8 +108,7 @@ public class Game implements Screen {
 
             // Draw the "Cat"
             // This should be the final thing to be drawn.
-            win.setColor(Color.black);
-            win.fillRect(cat.x, cat.y, Constants.cat_width, Constants.cat_width);
+            cat.draw(win);
 
             // Experimental crosshair on the cat
             // win.setColor(Color.white);
