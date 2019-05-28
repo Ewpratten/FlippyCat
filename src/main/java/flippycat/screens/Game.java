@@ -77,7 +77,7 @@ public class Game implements Screen {
 
         } else {
             // Move the pipe across the screen
-            pipe.moveLeft(1);
+            pipe.moveLeft(4); // 4 is about the max speed to go from a bottom to a top pipe1
 
             // Check if the cat died
             if (pipe.isColliding(new Point(cat.x, cat.y), Constants.cat_width)) {
