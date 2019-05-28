@@ -20,7 +20,7 @@ public class Pipe implements GappedWall {
         this.min = min;
         this.max = max;
 
-        this.sprite = ImageUtils.getInstance().loadImageFromResources("pipe.png");
+        this.sprite = ImageUtils.getInstance().loadImageFromResources("pipe2.png");
     }
 
     public boolean isColliding(Point loc, int colliderWidth) {
