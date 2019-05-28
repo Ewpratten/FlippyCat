@@ -1,17 +1,23 @@
 package flippycat.entities;
 
 import java.awt.Color;
+import java.awt.image.BufferedImage;
 
 import PicoEngine.Entity;
 import PicoEngine.Window;
+import PicoEngine.ImageUtils;
 
 import flippycat.Constants;
 
 public class Player extends Entity {
+
+    BufferedImage sprite;
     
     public Player(){
         // Temp untill updated by game loop
         this.y = 100;
+
+        sprite = ImageUtils.getInstance().loadImageFromResources("Cat.png");
     }
 
     public void setName(String name) {
@@ -36,8 +42,7 @@ public class Player extends Entity {
     }
     
     public void draw(Window win) {
-        win.setColor(Color.black);
-        win.fillRect(x, y, Constants.cat_width, Constants.cat_width);
+        win.drawImage(sprite, x - 2, y - 2, Constants.cat_width + 4, Constants.cat_width + 4);
     }
 
 }
