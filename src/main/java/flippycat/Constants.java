@@ -6,8 +6,8 @@ package flippycat;
 public class Constants {
     public static final int squared_button_width = 64; // in px
     public static final int cat_width = 32; // in px
-    public static final int rect_button_height = 64;
-    public static final int rect_button_width = 128;
+    public static final int rect_button_height = 128;
+    public static final int rect_button_width = 256;
 
     public static final int pipe_width = 64;
     public static final int pipe_gap_size = 100;

@@ -19,8 +19,8 @@ public class Death implements Screen {
 
     public void setup(Window win) {
         // Move all buttons to correct location in grid
-        start.setLocation(win.getGrid().getX(8), win.getGrid().getY(47));
-        ragequit.setLocation(win.getGrid().getX(8), win.getGrid().getY(38));
+        start.setLocation(win.getGrid().getX(5.5), win.getGrid().getY(57));
+        ragequit.setLocation(win.getGrid().getX(5.5), win.getGrid().getY(38));
     }
 
     public void feed(Window win) {
@@ -45,7 +45,9 @@ public class Death implements Screen {
             // Not clearing. Just drawing a box
 
             win.setColor(Color.white);
-            win.rect(win.getGrid().getX(5), win.getGrid().getY(15), win.getGrid().getX(10), win.getGrid().getY(40), true);
+            win.setBackgroundColor(Color.white);
+            win.clear();
+            // win.rect(win.getGrid().getX(5), win.getGrid().getY(15), win.getGrid().getX(10), win.getGrid().getY(60), true);
 
             // Make sure, again, that the color is correct
             win.setColor(Color.black);

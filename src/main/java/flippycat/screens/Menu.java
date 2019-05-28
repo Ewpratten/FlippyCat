@@ -32,7 +32,7 @@ public class Menu implements Screen {
 
         // Move all buttons to correct location in grid
         exit.setLocation(win.getGrid().getX(20) - Constants.squared_button_width, 0);
-        start.setLocation(win.getGrid().getX(8), win.getGrid().getY(45));
+        start.setLocation(win.getGrid().getX(5.5), win.getGrid().getY(45));
     }
 
     public void feed(Window win) {
