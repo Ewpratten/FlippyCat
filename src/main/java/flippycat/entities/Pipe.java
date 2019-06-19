@@ -41,11 +41,6 @@ public class Pipe implements GappedWall {
     }
 
     public void draw(Window win) {
-        // // Temp rects. Replace with images
-        // win.setColor(Color.black);
-        // win.rect(x, 0, width, min, true);
-        // win.rect(x, max, width, win.getHeight(), true);
-
         // draw both images
         win.drawImage(sprite, x, -(win.getHeight() - min), width, 800);
         win.drawImage(sprite, x, max, width, 800);

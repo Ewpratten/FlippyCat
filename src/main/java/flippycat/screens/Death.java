@@ -50,7 +50,6 @@ public class Death implements Screen {
             win.setColor(Color.white);
             win.setBackgroundColor(Color.white);
             win.clear();
-            // win.rect(win.getGrid().getX(5), win.getGrid().getY(15), win.getGrid().getX(10), win.getGrid().getY(60), true);
 
             // Make sure, again, that the color is correct
             win.setColor(Color.black);

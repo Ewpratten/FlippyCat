@@ -19,6 +19,7 @@ public class ImageUtils {
         try {
             return ImageIO.read(new File(getClass().getClassLoader().getResource(file).getFile()));
         } catch (Exception e) {
+            System.out.println(file);
             System.out.println("loadImageFromResources encountered an error: " + e);
             return new BufferedImage(0, 0, 0);
         }
